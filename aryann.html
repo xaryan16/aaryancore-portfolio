@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Aryan Rao | Professional Portfolio</title>
+    <style>
+        /* ===================================================
+           COLOR & THEME SETTINGS
+        =================================================== */
+        :root {
+            --background: #ffffff;
+            --primary-text: #111111;
+            --secondary-text: #666666;
+            --border: #eeeeee;
+            --skill-bg: #f5f5f5;
+            --nav-height: 70px;
+        }
+
+        /* ===================================================
+           DESIGN ENGINE
+        =================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--primary-text);
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* MINIMAL NAVBAR */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -1.5px;
+            text-decoration: none;
+            color: var(--primary-text);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary-text);
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-text);
+        }
+
+        /* REDESIGNED HERO SECTION (Left Aligned) */
+        .hero {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 120px 0 80px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 20px;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: all 0.4s ease;
+            border: 1px solid var(--border);
+        }
+
+        .profile-img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -4px;
+            line-height: 0.9;
+            margin-bottom: 24px;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--secondary-text);
+            max-width: 500px;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-links a {
+            color: var(--primary-text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            border-bottom: 1px solid var(--primary-text);
+            padding-bottom: 2px;
+            transition: opacity 0.2s;
+        }
+
+        .contact-links a:hover {
+            opacity: 0.6;
+        }
+
+        /* CONTENT SECTIONS */
+        section {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 40px;
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h2 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--secondary-text);
+            padding-top: 5px;
+        }
+
+        .content-block {
+            margin-bottom: 48px;
+        }
+
+        .content-block:last-child {
+            margin-bottom: 0;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .sub-heading {
+            font-weight: 600;
+            color: var(--primary-text);
+            margin-bottom: 8px;
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        .date {
+            color: var(--secondary-text);
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+            display: block;
+            font-weight: 500;
+        }
+
+        p {
+            color: var(--secondary-text);
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            position: relative;
+            padding-left: 20px;
+            color: var(--secondary-text);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--primary-text);
+            font-weight: bold;
+        }
+
+        /* SKILLS GRID */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding-left: 0;
+        }
+
+        .skills-grid li {
+            background: var(--skill-bg);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: var(--primary-text);
+            font-weight: 600;
+            border: 1px solid transparent;
+        }
+
+        .skills-grid li::before {
+            content: "";
+            padding: 0;
+        }
+
+        .skills-grid li:hover {
+            border-color: #ddd;
+        }
+
+        /* FOOTER */
+        footer {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 0;
+            color: var(--secondary-text);
+            font-size: 12px;
+            text-align: left;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 10px;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: left;
+                padding: 60px 0;
+                align-items: flex-start;
+            }
+
+            h1 {
+                font-size: 2.8rem;
+                letter-spacing: -2px;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 20px;
+            }
+
+            section {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 50px 0;
+            }
+
+            h2 {
+                border-bottom: 1px solid var(--border);
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Welcome to Aryan's core Portfolio</a>
+            <div class="nav-links">
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Aryan Rao</h1>
+            <p class="tagline">
+              I am a passionate video editor who loves creating cinematic and engaging content. I specialize in reels, gaming montages, transitions, color grading, and social media edits. My goal is to turn simple clips into professional and eye-catching videos that keep viewers engaged. I enjoy learning new editing styles and improving my creativity with every project.
+
+            </p>
+            <div class="contact-links">
+                <a href="aryanrao411@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/aryan-rao-075475395/">LinkedIn</a>
+                <a href="https://github.com/xaryan16">GitHub</a>
+                <a href="https://www.instagram.com/aaryan.aesthetics?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Instagram</a>
+            </div>
+        </div>
+        <img src="https://media.licdn.com/dms/image/v2/D4E03AQG_kTxqNFqnkQ/profile-displayphoto-crop_800_800/B4EZo.SyMpIoAI-/0/1761981704752?e=1781740800&v=beta&t=QtDCPsb9bm9v5P3I_qkJDpxGNYJ-NiMK7KWPApNjvic" alt="Profile"
+            class="profile-img">
+    </header>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="content-wrapper">
+            <div class="content-block">
+                <h3>Video Editor</h3>
+                <div class="sub-heading">KIPM Innovators Foundation | Gorakhpur</div>
+                <div class="date">Aug 2025 — Present</div>
+                <p>Leading the architecture of internal platforms and mentoring early-stage student founders.</p>
+                <ul>
+                    <li>• Edited cinematic reels, gaming videos, and social media content.</li>
+                    <li>• Skilled in transitions, sync edits, color grading, and effects.</li>
+                    <li>• Worked on creative video projects for Instagram, YouTube, and short-form content </li>
+                    <li>• Passionate about creating professional and engaging edits. </li>
+                    <li>• Continuously learning new editing techniques and trends. </li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Founder</h3>
+                <div class="sub-heading">Aryancore Platform</div>
+                <div class="date">may 2025 — Present</div>
+                <p>Building a high-end creative portfolio platform focused on modern video editing and cinematic content creation. Passionate about crafting visually engaging edits, smooth transitions, color grading, and professional storytelling for social media and digital platforms..</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="content-wrapper">
+            <div class="content-block">
+                <h3>B.Tech in ECE</h3>
+                <div class="sub-heading">KIPM College of Engineering & Technology</div>
+                <div class="date">2025 — 2029</div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="Software used">
+        <h2>Software Used / experienced</h2>
+        <div class="content-wrapper">
+            <div class="content-block">
+                <h3>Capcut pro Mobile and pc</h3>
+                <p>Experience Highlights:
+
+
+</p>
+                <div class="contact-links" style="margin-top: 10px;">
+                    <a href="#" style="font-size: 12px; border: none; font-weight: 700;">View Project →</a>
+                </div>
+            </div>
+
+           
+    </section>
+
+    <section id="skills">
+        <h2>Expertise</h2>
+        <div class="content-wrapper">
+            <ul class="skills-grid">
+                <li>Cinematic video editing</li>
+                <li>Color Grading</li>
+                <li>Smooth transitions</li>
+                <li>Instagram reels editing</li>
+                <li>Youtube video editing</li>
+                <li>Motion effects</li>
+                <li>Beat sync editing</li>
+                <li>Short from content creation</li>
+                
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Aryan Rao. All rights reserved.</p>
+    </footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"62e76c9beded41c4a8e08e7fd41042dd","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+
+</html>
